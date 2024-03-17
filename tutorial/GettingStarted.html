@@ -341,14 +341,24 @@
 
         function copyToClipboard() {
             const inviteLink = "https://discord.gg/r5K9H97pQq";
+            const textarea = document.createElement('textarea');
+            textarea.textContent = inviteLink;
+            textarea.style.position = 'fixed';  // Prevent scrolling to bottom of page in MS Edge.
+            document.body.appendChild(textarea);
+            textarea.select();
 
-            navigator.clipboard.writeText(inviteLink)
-                .then(() => {
-                    showSuccessMessage();
-                })
-                .catch((error) => {
-                    console.error("复制到剪贴板失败:", error);
-                });
+        try {
+            const successful = document.execCommand('copy');  // Security exception may be thrown by some browsers.
+            if (successful) {
+                showSuccessMessage();
+            }
+            return successful;
+        } catch (ex) {
+            console.warn("Copy to clipboard failed.", ex);
+            return false;
+        } finally {
+            document.body.removeChild(textarea);
+            }
         }
 
         function showSuccessMessage() {
