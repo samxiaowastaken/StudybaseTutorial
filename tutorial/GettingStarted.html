@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何加入Discord服务器 - ECIC学习库</title>
+    <style>  * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 50px;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        color: #1D243C;
+        font-size: 18px;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: #1D243C;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+
+    nav ul li a:hover {
+        color: #777;
+    }
+
+    .menu-btn {
+        color: #1D243C;
+        font-size: 22px;
+        cursor: pointer;
+        display: none;
+    }
+
+    #click {
+        display: none;
+    }
+
+    .tutorial {
+        padding: 120px 50px 80px;
+        line-height: 1.6;
+    }
+
+    .tutorial h1, .tutorial h2, .tutorial h3, .tutorial h4 {
+        margin-bottom: 20px;
+    }
+
+    .tutorial p {
+        margin-bottom: 20px;
+    }
+
+    .tutorial img {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        background-color: #1d1d1d;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+	.download-btn {
+        text-decoration: none;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 10px;
+        transition: transform 0.3s ease;
+	}
+
+	.download-btn:hover {
+        transform: translateY(-5px);
+	}
+
+    @media (max-width: 900px) {
+        header {
+            padding: 20px 40px;
+            background-color: #fff;
+        }
+        .menu-btn {
+            display: block;
+        }
+        nav ul {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            background-color: #fff;
+            height: calc(100vh - 80px);
+            width: 100%;
+            display: block;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        #click:checked ~ ul {
+            left: 0;
+        }
+        nav ul li {
+            margin: 40px 0;
+        }
+        nav ul li a {
+            font-size: 20px;
+            color: #1d1d1d;
+            display: block;
+        }
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            z-index: 9999;
+        }
+        .tutorial {
+            padding: 100px 30px 60px;
+        }
+    }
+    /* 时间轴样式 */
+    .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 120px 50px 80px;
+    }
+
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: #1D243C;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+    }
+
+    .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+    }
+
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: white;
+        border: 4px solid #1D243C;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    .left {
+        left: 0;
+    }
+
+    .right {
+        left: 50%;
+    }
+
+    .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid #f5f5f5;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #f5f5f5;
+    }
+
+    .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid #f5f5f5;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #f5f5f5 transparent transparent;
+    }
+
+    .right::after {
+        left: -16px;
+    }
+
+    .timeline-content {
+        padding: 30px 30px;
+        background-color: #f5f5f5;
+        position: relative;
+        border-radius: 6px;
+        line-height: 1.8;
+    }
+
+    @media screen and (max-width: 600px) {
+        .timeline::after {
+            left: 31px;
+        }
+
+        .timeline-item {
+            width: 100%;
+            padding-left: 70px;
+            padding-right: 25px;
+        }
+
+        .timeline-item::before {
+            left: 60px;
+            border: medium solid #f5f5f5;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #f5f5f5 transparent transparent;
+        }
+
+        .left::after, .right::after {
+            left: 15px;
+        }
+
+        .right {
+            left: 0%;
+        }
+    }
+    </style>
+</head>
+<body> <!-- 导航栏 -->
+<header>
+    <nav>
+        <div class="logo">ECIC学习库</div>
+        <input type="checkbox" id="click"> <label for="click" class="menu-btn">&#9776;</label>
+        <ul>
+            <li><a class="active" href="\">主页</a></li>
+            <li><a href="\tutorial\PrivateNetwork">魔法上网教程</a></li>
+            <li><a href="https://discord.gg/r5K9H97pQq">Discord服务器</a></li>
+            <li><a href="https://github.com/samxiaowastaken/StudybaseTutorial">Github开源</a></li>
+            <!-- <li><a href="#">联系方式</a></li>--> </ul>
+    </nav>
+</header>
+<main>
+    <div class="timeline">
+        <div class="timeline-item left">
+            <div class="timeline-content"><h2>1. 获取国际互联网连接</h2>
+                <p>
+                    你需要获取一个可以访问国际互联网的连接。你可以使用"魔法上网教程"中介绍的虚影领域技术,打造一条通往国际互联网的通道。</p>
+            </div>
+        </div>
+        <div class="timeline-item right">
+            <div class="timeline-content"><h2>2. 下载Discord应用</h2>
+                <p>进入<a href="https://discord.com/download" target="_blank">Discord官网</a>,下载适合你的系统的Discord应用。
+                </p></div>
+        </div>
+        <div class="timeline-item left">
+            <div class="timeline-content"><h2>3. 注册Discord账号</h2>
+                <p>打开Discord应用,按照提示注册一个新的Discord账号。你可以使用电子邮件地址或手机号码进行注册。</p></div>
+        </div>
+        <div class="timeline-item right">
+            <div class="timeline-content"><h2>4. 加入Discord服务器</h2>
+                <p>注册完成后,在已拥有Discord应用的设备上点击下方按钮:</p>
+                    <a href="https://discord.gg/r5K9H97pQq" class="download-btn">加入Discord服务器</a>
+
+                <p>或者,你可以手动输入以下链接:</p>
+                    <code>https://discord.gg/r5K9H97pQq</code>
+                <p>
+                    这将允许你加入ECIC学习库的Discord服务器。在服务器中,你可以与其他学习者交流、获取学习资源、参与讨论等。</p>
+            </div>
+        </div>
+    </div>
+</main> <!-- 页脚 -->
+<footer><p>&copy; 2024 ECIC学习库. 版权所有.</p></footer>
+</body>
+</html>
