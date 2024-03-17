@@ -9,8 +9,13 @@ def download(filename):
 
 @bottle.route('/pic/<filename:path>',method='POST')
 @bottle.route('/pic/<filename:path>',method='GET')
-def download(filename):
+def get_pic(filename):
     return bottle.static_file(filename, root='./pic')
+
+@bottle.route('/tutorial/<filename:path>',method='POST')
+@bottle.route('/tutorial/<filename:path>',method='GET')
+def tutorial(filename):
+    return bottle.static_file(filename+".html", root='./tutorial')
 @bottle.route('/<filename:path>',method='POST')
 @bottle.route('/<filename:path>',method='GET')
 def download(filename):
@@ -20,10 +25,7 @@ def download(filename):
 def index():
     return bottle.static_file('mainpage/index.html', root='.')
 
-@bottle.route('/tutorial',method='POST')
-@bottle.route('/tutorial',method='GET')
-def download():
-    return bottle.static_file('tutorial.html', root='./tutorial')
+
 
 
 
