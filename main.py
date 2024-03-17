@@ -25,7 +25,10 @@ def download(filename):
 def index():
     return bottle.static_file('mainpage/index.html', root='.')
 
-
+@bottle.route('/favicon.ico',method='POST')
+@bottle.route('/favicon.ico',method='GET')
+def favicon():
+    return bottle.static_file('pic/favicon.ico', root='.')
 
 
 
