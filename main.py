@@ -2,7 +2,15 @@ import bottle
 import os
 import sys
 
+@bottle.route('/downloads/<filename:path>',method='POST')
+@bottle.route('/downloads/<filename:path>',method='GET')
+def download(filename):
+    return bottle.static_file(filename, root='./downloads')
 
+@bottle.route('/pic/<filename:path>',method='POST')
+@bottle.route('/pic/<filename:path>',method='GET')
+def download(filename):
+    return bottle.static_file(filename, root='./pic')
 @bottle.route('/<filename:path>',method='POST')
 @bottle.route('/<filename:path>',method='GET')
 def download(filename):
@@ -12,19 +20,12 @@ def download(filename):
 def index():
     return bottle.static_file('mainpage/index.html', root='.')
 
-@bottle.route('/style.css',method='POST')
-@bottle.route('/style.css',method='GET')
-def index():
-    return bottle.static_file('style.css', root='.')
-@bottle.route('/download',method='POST')
-@bottle.route('/download',method='GET')
+@bottle.route('/tutorial',method='POST')
+@bottle.route('/tutorial',method='GET')
 def download():
-    return bottle.static_file('downloads/download.html', root='./downloads')
+    return bottle.static_file('tutorial.html', root='./tutorial')
 
-@bottle.route('/download/<filename:path>',method='POST')
-@bottle.route('/download/<filename:path>',method='GET')
-def download(filename):
-    return bottle.static_file(filename, root='./downloads')
+
 
 
 if __name__ == '__main__':
