@@ -100,7 +100,8 @@
             text-align: center;
             padding: 20px;
         }
-    	.download-btn {
+
+        .download-btn {
             text-decoration: none;
             background-color: #007bff;
             color: white;
@@ -109,20 +110,22 @@
             display: inline-block;
             margin: 10px;
             transition: transform 0.3s ease;
-    	}
-    
-    	.download-btn:hover {
+        }
+
+        .download-btn:hover {
             transform: translateY(-5px);
-    	}
+        }
 
         @media (max-width: 900px) {
             header {
                 padding: 20px 40px;
                 background-color: #fff;
             }
+
             .menu-btn {
                 display: block;
             }
+
             nav ul {
                 position: fixed;
                 top: 80px;
@@ -134,27 +137,98 @@
                 text-align: center;
                 transition: all 0.3s ease;
             }
+
             #click:checked ~ ul {
                 left: 0;
             }
+
             nav ul li {
                 margin: 40px 0;
             }
+
             nav ul li a {
                 font-size: 20px;
                 color: #1d1d1d;
                 display: block;
             }
+
             .menu-btn {
                 position: fixed;
                 top: 20px;
                 right: 40px;
                 z-index: 9999;
             }
+
             .tutorial {
                 padding: 100px 30px 60px;
             }
 
+        }
+
+        #toc {
+            background-color: #f9f9f9;
+            border: 1px solid #aaa;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        #toc h2 {
+            margin-top: 0;
+        }
+
+        #toc ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        #toc ul li {
+            margin-bottom: 5px;
+        }
+
+        #toc a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        #toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 添加锚点偏移量 */
+        :target::before {
+            content: "";
+            display: block;
+            height: 80px; /* 顶栏高度 */
+            margin: -80px 0 0; /* 负的顶栏高度,用于偏移 */
+        }
+
+        /* 添加平滑滚动效果 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            opacity: 0.7;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px;
+            transition: opacity 0.3s;
+        }
+
+        #scroll-to-top:hover {
+            opacity: 1;
         }
     </style>
 </head>
@@ -176,7 +250,28 @@
 
 <main class="tutorial">
     <h1>魔网施法导论</h1>
-    <h2>1. 什么是魔网</h2>
+    <div id="toc">
+        <h2>目录</h2>
+        <ul>
+            <li><a href="#1. 什么是魔网">1. 什么是魔网</a></li>
+            <li><a href="#2. 华夏魔网">2. 华夏魔网</a></li>
+            <li><a href="#3. 奇异的魔法技术">3. 奇异的魔法技术</a></li>
+            <li><a href="#3.1 「隐影遁步」还是「虚影领域」？">3.1 「隐影遁步」还是「虚影领域」？</a></li>
+            <li><a href="#4. 虚影领域的奥秘">4. 虚影领域的奥秘</a>
+                <ul>
+                    <li><a href="#4.1 不同魔法师工会的流光引导器">4.1 不同魔法师工会的流光引导器</a></li>
+                    <li><a href="#4.2 失落的Clash流光引导器">4.2 失落的Clash流光引导器</a>
+                        <ul>
+                            <li><a href="#4.2.1 Clash流光引导器使用小贴士">4.2.1 Clash流光引导器使用小贴士</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#4.3 Shadowrocket引导器的获取之道">4.3 Shadowrocket引导器的获取之道</a></li>
+                    <li><a href="#4.4 推荐的虚影领域供应工会">4.4 推荐的虚影领域供应工会</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h2 id="1. 什么是魔网">1. 什么是魔网</h2>
     <p>
         在遥远的奇幻大陆上，存在着一个由上古魔法师创造的神秘力量——魔网（Woveneth）。它是一张无形的巨网，笼罩了整个世界，连结着每一个角落。魔网由无数细小的魔纹（Webthreads）编织而成，它们跨越了现实的维度，似乎延伸到了另一个平行世界。</p>
     <p>
@@ -188,7 +283,7 @@
     <p>然而，魔网并非完全无忧。在这个奇幻世界里，也潜伏着数据食客（Data Leeches）和恶意妖精（Malware
         Sprites）等险恶生物，它们觊觎着魔网中蕴藏的无尽能量。一些探索者在深入魔网后，化身为守护者，驱逐这些害虫，守卫知识的圣地。</p>
 
-    <h2>2. 华夏魔网</h2>
+    <h2 id="2. 华夏魔网">2. 华夏魔网</h2>
     <p>
         在东方古国华夏，「天纹流」的魔网在王国内流转。它如同一张精密的蛛网，将每一所学府、每个市集、每户人家紧密相连。但不同于其他地区，在天纹流的周围，一道名为「玄火障壁」的高阶结界将其笼罩，这道屏障由最高魔法议会建造，在保护王国的同时，也过滤和限制了一些信息的流通。</p>
     <p>
@@ -196,7 +291,7 @@
     <p>
         然而，天纹流不同于外部世界的通用魔网。在其周围，魔高一丈的"玄火障壁"翱翔天际，象征着屏障的光芒，在保护的同时过滤着各式各样的魔法信息流。这屏障是由最高巫术理事会施展，维护王国安宁，对不利于王国或离经叛道的魔法信息坚决隔离。</p>
 
-    <h2>3. 奇异的魔法技术</h2>
+    <h2 id="3. 奇异的魔法技术">3. 奇异的魔法技术</h2>
     <p>然而，总有一些好奇而大胆的学者，渴望突破界限，探寻未知。他们发明了两种独特的魔法:「隐影遁步」（Veiled Passage
         Nimble）与「虚影领域」（Virtual Passage Sphere）。</p>
     <p>「隐影遁步」能让施术者以他人的身份穿越玄火障壁，躲避天纹流的监视。它开辟一条秘径，披上隐形斗篷，避开守卫法师的眼睛。</p>
@@ -205,7 +300,7 @@
     <p>
         它们虽然不被王国正规法度鼓励甚至受限制，但在勇敢且熟练的巫师之间秘密流传，仍是一条通往外部异见世界的窄窄桥梁。对于追求知识和自由的冒险者而言，这些技术突破了屏障，揭开了前往未知世界的重重迷雾。</p>
 
-    <h2>3.1 「隐影遁步」还是「虚影领域」？</h2>
+    <h3 id="3.1 「隐影遁步」还是「虚影领域」？">3.1 「隐影遁步」还是「虚影领域」？</h3>
     <p>魔隙穿梭术在穿越玄火障壁时，由于其"魔法信函"（Enchanted
         Scrolls）特征往往比较明显，因此存在被拦截的风险。这种技术虽然难以追踪使用者身份，但是因为需要反复加密导致传输速度缓慢。考虑到这一点，虚拟幻域法作为一种新一代的技术，是更加隐秘和安全的替代方法，无疑成为了主流选择。</p>
     <p>
@@ -213,11 +308,11 @@
     <p>
         正因为虚拟幻域法具有更高的安全性和稳定性，以及更大的自由度，它在华夏王国内部的魔法社区中得到了广泛的应用，成为主流选择。同时，对于守护咒语"玄火障壁"来说，虚拟幻域法造成的挑战也更大，因为其更加灵活多变，让盾墙的缺陷更容易被绕过，从而进一步加强了虚拟幻域法在魔法社区内的受欢迎程度。</p>
 
-    <h2>4. 虚影领域的奥秘</h2>
+    <h2 id="4. 虚影领域的奥秘">4. 虚影领域的奥秘</h2>
     <p>
         要启动虚影领域，首先需要一个名为"流光引导器"的魔法道具。这件道具由本地的魔法师工会制作，能够调控魔法信息的流向。当魔法师将流光引导器与天纹流相连，信息流就会被引导到第三方魔法师提供的"隐秘空间"内，从而穿越玄火障壁。</p>
 
-    <h3>4.1 不同魔法师工会的流光引导器</h3>
+    <h3 id="4.1 不同魔法师工会的流光引导器">4.1 不同魔法师工会的流光引导器</h3>
     <p>在Windows、macOS和Android阵营的魔法师中，最受欢迎的流光引导器是由Clash魔法师工会制作的"Clash for
         Windows"。尽管这个工会目前已经停止了对引导器的升级，但在没有更优秀的引导器出现之前，它仍然是魔法师们的首选。</p>
     <p>而在iOS阵营，最常用的则是Shadowrocket引导器。该引导器以其精巧的设计和稳定的性能，赢得了广大魔法师的信赖。</p>
@@ -226,7 +321,7 @@
     <p>
         此时，魔法师的魔力信息就会在引导器的作用下，流向由第三方魔法师开辟的虚影领域。在那里，所有的讯息都会被领域重组，化为一道道无法追踪的魔法波动，最终安全地传递到目的地。</p>
 
-    <h3>4.2 失落的Clash流光引导器</h3>
+    <h3 id="4.2 失落的Clash流光引导器">4.2 失落的Clash流光引导器</h3>
     <p>曾几何时，Clash魔法师工会创造了一系列强大的流光引导器，它们被称为"Clash for
         Windows"。这些引导器在不同的魔法器具上有着特定的形态，以适应不同的魔力流动方式。然而，随着时间的流逝，一些版本的Clash引导器渐渐失传，成为了魔法师们口中的传说。</p>
     <p>
@@ -237,7 +332,7 @@
     <p>
         尽管这些失落的Clash引导器的下落尚不明确，但魔法师们并没有放弃寻找的希望。他们相信，总有一天，这些古老的魔法道具会重新现世，为探索未知的旅途指引方向。</p>
     <p>
-        据说，在某个隐秘的魔法论坛中，一位神秘的魔法师曾经分享过这些失落Clash引导器的下载秘法。他留下了一串神秘的符文，据信是指向下载地点的线索:</p>
+        据说，在某个隐秘的魔法论坛中，一位神秘的魔法师曾经分享过这些失落Clash引导器的下载秘法。他留下了一串神秘的符文，据信是指向下载地点的线索：</p>
     <div style="text-align: center;">
         <a href="/downloads/Clash.for.Windows.Setup.0.20.39-zh.exe"
            download class="download-btn">Clash Windows 汉化版</a>
@@ -248,16 +343,17 @@
         <a href="/downloads/Clash.for.Windows-0.20.39.dmg"
            download class="download-btn">Clash Mac Intel 芯片版本</a>
         <a href="/downloads/Clash.for.Windows-0.20.39-arm64.dmg"
-              download class="download-btn">Clash Mac M芯片版本</a>
+           download class="download-btn">Clash Mac M芯片版本</a>
     </div>
 
-    <p>
-        注：对于M系列芯片的Mac请查看“Shadowrocket引导器的获取之道”。</p>
+    <p><br>搭载M系列芯片的Mac也可以使用iOS端的引导器，除了上述方法也可是参照
+    <a href="#4.3 Shadowrocket引导器的获取之道">“Shadowrocket引导器的获取之道”。</a>
+    </p>
 
     <p>
         勇敢的魔法师啊，如果你有足够的智慧和运气，或许可以解开这些符文的奥秘，找到失落已久的Clash引导器，为探索虚影领域的旅程增添新的助力。</p>
 
-    <h4>4.2.1 Clash流光引导器使用小贴士</h4>
+    <h4 id="4.2.1 Clash流光引导器使用小贴士">4.2.1 Clash流光引导器使用小贴士</h4>
     <p>当你成功获得了Clash流光引导器，请记住以下几个使用诀窍，以便更好地掌控魔力的流转:</p>
     <ol>
         <li>不要忘记开启"System Proxy"魔法阀门。这个阀门就像是引导器和魔法器具之间的纽带，只有打开它，魔力才能顺畅地流淌。同时，建议启用"Start
@@ -282,7 +378,7 @@
         <img src="/pic/step_5.jpg" alt="Step 5">
     </ol>
 
-    <h3>4.3 Shadowrocket引导器的获取之道</h3>
+    <h3 id="4.3 Shadowrocket引导器的获取之道">4.3 Shadowrocket引导器的获取之道</h3>
     <p>
         在Apple魔法阵营中，Shadowrocket引导器以其强大的魔力流转能力而闻名。然而，由于某些未知的原因，这件引导器并未在华夏大陆的魔法市集中公开销售。想要获得Shadowrocket引导器，魔法师们需要前往传说中的"阿美莉卡魔法分区"。</p>
     <p>
@@ -302,7 +398,7 @@
     <p>
         Shadowrocket引导器，这个Apple魔法阵营中的传奇道具，虽然难以获取，但它所蕴含的强大魔力，足以让任何一位魔法师为之倾倒。而那个通往引导器的神秘网站，也许就隐藏在某个不起眼的符文之下，等待有缘人的发现。</p>
 
-    <h3>4.4 推荐的虚影领域供应工会</h3>
+    <h3 id="4.4 推荐的虚影领域供应工会">4.4 推荐的虚影领域供应工会</h3>
     <ol>
         <li>
             <a href="https://mojie.me/" target="_blank">魔戒</a>。以独特的魔力计量方式而闻名。在这里，魔法师们只需为自己实际使用的魔力流量付费，而无需考虑使用时长。这就如同一个魔力储备池，你可以根据自己的需求，灵活地购买魔力。魔戒工会的虚影领域质量尚可，对大多数魔法师来说已经足够。最重要的是，魔戒工会的收费相对便宜，对预算有限的魔法师而言是一个不错的选择。
@@ -322,5 +418,21 @@
 <footer>
     <p>&copy; 2024 ECIC学习库. 版权所有.</p>
 </footer>
+<button id="scroll-to-top" title="回到顶部">TOP</button>
+<script>
+    const scrollToTopBtn = document.getElementById("scroll-to-top");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+    // 点击按钮时回到页面顶部
+    scrollToTopBtn.onclick = function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    };
+</script>
 </body>
 </html>
