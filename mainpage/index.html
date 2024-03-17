@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECIC学习库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 导航栏样式 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #1D243C;
+            font-size: 18px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #1D243C;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover {
+            color: #777;
+        }
+
+        .menu-btn {
+            color: #1D243C;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #click {
+            display: none;
+        }
+
+        /* 主体内容样式 */
+        .hero {
+            background-image: url('hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero .content {
+            text-align: center;
+            color: #000;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #1d1d1d;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1d1d1d;
+            color: #fff;
+        }
+
+        .features {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            justify-items: center;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 18px;
+            color: #777;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #1d1d1d;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            header {
+                padding: 20px 40px;
+                background-color: #fff;
+            }
+            .menu-btn {
+                display: block;
+            }
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background-color: #fff;
+                height: calc(100vh - 80px);
+                width: 100%;
+                display: block;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+            #click:checked ~ ul {
+                left: 0;
+            }
+            nav ul li {
+                margin: 40px 0;
+            }
+            nav ul li a {
+                font-size: 20px;
+                color: #1d1d1d;
+                display: block;
+            }
+            .menu-btn {
+                position: fixed;
+                top: 20px;
+                right: 40px;
+                z-index: 9999;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ECIC学习库</div>
+            <input type="checkbox" id="click">
+            <label for="click" class="menu-btn">&#9776;</label>
+            <ul>
+                <li><a class="active" href="#">主页</a></li>
+                <li><a href="#">课程</a></li>
+                <li><a href="#">资源</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="content">
+                <h1>欢迎来到ECIC学习库</h1>
+                <p>探索知识的海洋,启航学习的旅程。</p>
+                <a href="#" class="btn">开始学习</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>我们的特色</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="online-course.png" alt="在线课程">
+                    <h3>在线课程</h3>
+                    <p>我们提供各种学科的在线课程,让您随时随地学习。</p>
+                </div>
+                <div class="card">
+                    <img src="resources.png" alt="丰富资源">
+                    <h3>丰富资源</h3>
+                    <p>这里有丰富的学习资源,包括教材、视频、练习题等。</p>
+                </div>
+                <div class="card">
+                    <img src="interaction.png" alt="互动交流">
+                    <h3>互动交流</h3>
+                    <p>与老师和同学在线交流,让学习更高效、更有趣。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 ECIC学习库. 版权所有.</p>
+    </footer>
+</body>
+</html>
